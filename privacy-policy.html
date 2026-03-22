@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramazan Cebimde - Gizlilik Politikası</title>
+    <title>Ramazan Cebimde - Gizlilik Politikası / Privacy Policy</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -26,7 +26,7 @@
         }
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             padding-bottom: 24px;
             border-bottom: 1px solid rgba(212, 175, 55, 0.15);
         }
@@ -48,6 +48,29 @@
             font-size: 13px;
             font-style: italic;
         }
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .lang-btn {
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: transparent;
+            color: #8A9BB5;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            background: rgba(212, 175, 55, 0.15);
+            color: #D4AF37;
+            border-color: #D4AF37;
+        }
+        .lang-btn:hover { border-color: #D4AF37; }
         h2 {
             color: #D4AF37;
             font-size: 18px;
@@ -82,7 +105,7 @@
             position: relative;
         }
         li::before {
-            content: '·';
+            content: '\00B7';
             color: #D4AF37;
             font-weight: bold;
             font-size: 20px;
@@ -113,6 +136,8 @@
             color: #5A6577;
             font-size: 13px;
         }
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
         @media (max-width: 600px) {
             body { padding: 12px; }
             .container { padding: 28px 20px; border-radius: 16px; }
@@ -124,95 +149,200 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="moon">🌙</div>
+            <div class="moon">&#127769;</div>
             <h1>Ramazan Cebimde</h1>
-            <p class="subtitle">Gizlilik Politikası</p>
-            <p class="date">Son Güncelleme: 21 Mart 2026</p>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLang('tr')" id="btn-tr">&#127481;&#127479; TR</button>
+                <button class="lang-btn" onclick="switchLang('en')" id="btn-en">&#127468;&#127463; EN</button>
+            </div>
         </div>
 
-        <div class="highlight">
-            <strong>Ramazan Cebimde</strong> uygulaması, kullanıcılarının gizliliğine saygı duyar. Bu politika, uygulamamızın hangi verileri topladığını, nasıl kullandığını ve nasıl koruduğunu açıklar.
+        <!-- TURKISH -->
+        <div id="content-tr" class="lang-content active">
+            <p class="subtitle">Gizlilik Politikasi</p>
+            <p class="date">Son Guncelleme: 22 Mart 2026</p>
+
+            <div class="highlight">
+                <strong>Ramazan Cebimde</strong> uygulamasi, kullanicilarinin gizliligine saygi duyar. Bu politika, uygulamamizin hangi verileri topladigini, nasil kullandigini ve nasil korudugunu aciklar.
+            </div>
+
+            <h2>1. Toplanan Veriler</h2>
+            <h3>Hesap Bilgileri</h3>
+            <p>Google ile giris yapmaniz durumunda asagidaki bilgiler toplanir:</p>
+            <ul>
+                <li>Google hesap adiniz</li>
+                <li>E-posta adresiniz</li>
+                <li>Profil fotografi URL'niz</li>
+            </ul>
+            <p>Bu bilgiler yalnizca uygulama ici kimlik dogrulama ve ayarlarinizi cihazlar arasi senkronize etmek icin kullanilir.</p>
+
+            <h3>Konum Bilgisi</h3>
+            <p>Uygulama, namaz vakitlerini dogru hesaplayabilmek icin konum bilgisine erisim talep edebilir.</p>
+            <ul>
+                <li>Yalnizca bulundugunuz sehri belirlemek icin kullanilir</li>
+                <li>Sunucularimizda saklanmaz</li>
+                <li>Ucuncu taraflarla paylasilmaz</li>
+            </ul>
+
+            <h3>Kullanici Ayarlari</h3>
+            <p>Tercihleriniz cihazinizda ve giris yaptiyisaniz bulut uzerinde saklanir:</p>
+            <ul>
+                <li>Secili sehir ve bildirim tercihleri</li>
+                <li>Ses tercihleri ve ozel hatirlaticilar</li>
+                <li>Dil tercihi</li>
+            </ul>
+
+            <h3>Cihaz Bilgisi</h3>
+            <p>Reklam hizmetleri kapsaminda Google AdMob, cihaziniz hakkinda anonim teknik bilgiler toplayabilir. Bu bilgiler dogrudan tarafimizca toplanmaz.</p>
+
+            <h2>2. Verilerin Kullanim Amaclari</h2>
+            <ul>
+                <li>Namaz vakitlerini dogru hesaplamak ve bildirmek</li>
+                <li>Iftar ve sahur hatirlaticlari gondermek</li>
+                <li>Kullanici ayarlarini cihazlar arasi senkronize etmek</li>
+                <li>Uygulama deneyimini iyilestirmek</li>
+                <li>Reklam gostermek (Google AdMob araciligiyla)</li>
+            </ul>
+
+            <h2>3. Ucuncu Taraf Hizmetleri</h2>
+            <ul>
+                <li><strong>Google Firebase</strong> - Kimlik dogrulama ve bulut veri depolama</li>
+                <li><strong>Google Sign-In</strong> - Google hesabiyla giris</li>
+                <li><strong>Google AdMob</strong> - Reklam gosterimi</li>
+                <li><strong>Diyanet Isleri Baskanligi API</strong> - Namaz vakitleri verisi</li>
+            </ul>
+            <p>Ilgili politikalar: <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikasi</a> &middot; <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Gizlilik Politikasi</a></p>
+
+            <h2>4. Veri Saklama ve Silme</h2>
+            <ul>
+                <li>Uygulamayi sildiginizde cihazinizdaki tum veriler otomatik olarak silinir</li>
+                <li>Bulut verileriniz icin hesabinizdan cikis yaparak silme talep edebilirsiniz</li>
+                <li>Veri silme talebi icin bize e-posta ile ulasabilirsiniz</li>
+            </ul>
+
+            <h2>5. Veri Guvenligi</h2>
+            <ul>
+                <li>Tum veri iletisimi SSL/TLS sifreleme ile korunmaktadir</li>
+                <li>Firebase guvenlik kurallari ile yetkisiz erisim engellenmektedir</li>
+                <li>Hassas bilgiler (sifreler vb.) tarafimizca saklanmamaktadir</li>
+            </ul>
+
+            <h2>6. Cocuklarin Gizliligi</h2>
+            <p>Uygulamamiz 13 yasinin altindaki cocuklardan bilerek kisisel bilgi toplamaz.</p>
+
+            <h2>7. Reklam Politikasi</h2>
+            <p>Uygulamamiz Google AdMob araciligiyla reklam gostermektedir. AdMob kisisellestiriimis veya kisisellestirilmemis reklamlar gosterebilir ve reklam kimligi kullanabilir.</p>
+
+            <h2>8. Degisiklikler</h2>
+            <p>Bu gizlilik politikasini zaman zaman guncelleyebiliriz. Onemli degisiklikler oldugunda uygulama icinden bildirim yapilacaktir.</p>
+
+            <h2>9. Iletisim</h2>
+            <div class="highlight">
+                <strong>E-posta:</strong> ramazancebimde@gmail.com
+            </div>
         </div>
 
-        <h2>1. Toplanan Veriler</h2>
+        <!-- ENGLISH -->
+        <div id="content-en" class="lang-content">
+            <p class="subtitle">Privacy Policy</p>
+            <p class="date">Last Updated: March 22, 2026</p>
 
-        <h3>Hesap Bilgileri</h3>
-        <p>Google ile giriş yapmanız durumunda aşağıdaki bilgiler toplanır:</p>
-        <ul>
-            <li>Google hesap adınız</li>
-            <li>E-posta adresiniz</li>
-            <li>Profil fotoğrafı URL'niz</li>
-        </ul>
-        <p>Bu bilgiler yalnızca uygulama içi kimlik doğrulama ve ayarlarınızı cihazlar arası senkronize etmek için kullanılır.</p>
+            <div class="highlight">
+                <strong>Ramazan Cebimde</strong> (Ramadan in My Pocket) respects the privacy of its users. This policy explains what data our app collects, how it is used, and how it is protected.
+            </div>
 
-        <h3>Konum Bilgisi</h3>
-        <p>Uygulama, namaz vakitlerini doğru hesaplayabilmek için konum bilgisine erişim talep edebilir.</p>
-        <ul>
-            <li>Yalnızca bulunduğunuz şehri belirlemek için kullanılır</li>
-            <li>Sunucularımızda saklanmaz</li>
-            <li>Üçüncü taraflarla paylaşılmaz</li>
-        </ul>
+            <h2>1. Data Collected</h2>
+            <h3>Account Information</h3>
+            <p>When you sign in with Google, the following information is collected:</p>
+            <ul>
+                <li>Your Google account name</li>
+                <li>Your email address</li>
+                <li>Your profile photo URL</li>
+            </ul>
+            <p>This information is used solely for in-app authentication and syncing your settings across devices.</p>
 
-        <h3>Kullanıcı Ayarları</h3>
-        <p>Tercihleriniz cihazınızda ve giriş yaptıysanız bulut üzerinde saklanır:</p>
-        <ul>
-            <li>Seçili şehir ve bildirim tercihleri</li>
-            <li>Ses tercihleri ve özel hatırlatıcılar</li>
-            <li>Dil tercihi</li>
-        </ul>
+            <h3>Location Information</h3>
+            <p>The app may request access to your location to accurately calculate prayer times.</p>
+            <ul>
+                <li>Used only to determine your city</li>
+                <li>Not stored on our servers</li>
+                <li>Not shared with third parties</li>
+            </ul>
 
-        <h3>Cihaz Bilgisi</h3>
-        <p>Reklam hizmetleri kapsamında Google AdMob, cihazınız hakkında anonim teknik bilgiler toplayabilir. Bu bilgiler doğrudan tarafımızca toplanmaz.</p>
+            <h3>User Settings</h3>
+            <p>Your preferences are stored on your device and, if signed in, in the cloud:</p>
+            <ul>
+                <li>Selected city and notification preferences</li>
+                <li>Sound preferences and custom reminders</li>
+                <li>Language preference</li>
+            </ul>
 
-        <h2>2. Verilerin Kullanım Amaçları</h2>
-        <ul>
-            <li>Namaz vakitlerini doğru hesaplamak ve bildirmek</li>
-            <li>İftar ve sahur hatırlatıcıları göndermek</li>
-            <li>Kullanıcı ayarlarını cihazlar arası senkronize etmek</li>
-            <li>Uygulama deneyimini iyileştirmek</li>
-            <li>Reklam göstermek (Google AdMob aracılığıyla)</li>
-        </ul>
+            <h3>Device Information</h3>
+            <p>Google AdMob may collect anonymous technical information about your device for advertising purposes. This data is not collected directly by us.</p>
 
-        <h2>3. Üçüncü Taraf Hizmetleri</h2>
-        <ul>
-            <li><strong>Google Firebase</strong> — Kimlik doğrulama ve bulut veri depolama</li>
-            <li><strong>Google Sign-In</strong> — Google hesabıyla giriş</li>
-            <li><strong>Google AdMob</strong> — Reklam gösterimi</li>
-            <li><strong>Diyanet İşleri Başkanlığı API</strong> — Namaz vakitleri verisi</li>
-        </ul>
-        <p>İlgili politikalar: <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikası</a> · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Gizlilik Politikası</a></p>
+            <h2>2. Purpose of Data Use</h2>
+            <ul>
+                <li>Accurately calculate and display prayer times</li>
+                <li>Send iftar and suhoor reminders</li>
+                <li>Sync user settings across devices</li>
+                <li>Improve the app experience</li>
+                <li>Display ads (via Google AdMob)</li>
+            </ul>
 
-        <h2>4. Veri Saklama ve Silme</h2>
-        <ul>
-            <li>Uygulamayı sildiğinizde cihazınızdaki tüm veriler otomatik olarak silinir</li>
-            <li>Bulut verileriniz için hesabınızdan çıkış yaparak silme talep edebilirsiniz</li>
-            <li>Veri silme talebi için bize e-posta ile ulaşabilirsiniz</li>
-        </ul>
+            <h2>3. Third-Party Services</h2>
+            <ul>
+                <li><strong>Google Firebase</strong> - Authentication and cloud data storage</li>
+                <li><strong>Google Sign-In</strong> - Google account authentication</li>
+                <li><strong>Google AdMob</strong> - Ad display</li>
+                <li><strong>Presidency of Religious Affairs (Diyanet) API</strong> - Prayer times data</li>
+            </ul>
+            <p>Related policies: <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> &middot; <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></p>
 
-        <h2>5. Veri Güvenliği</h2>
-        <ul>
-            <li>Tüm veri iletişimi SSL/TLS şifreleme ile korunmaktadır</li>
-            <li>Firebase güvenlik kuralları ile yetkisiz erişim engellenmektedir</li>
-            <li>Hassas bilgiler (şifreler vb.) tarafımızca saklanmamaktadır</li>
-        </ul>
+            <h2>4. Data Retention and Deletion</h2>
+            <ul>
+                <li>All data on your device is automatically deleted when you uninstall the app</li>
+                <li>You can request deletion of cloud data by signing out of your account</li>
+                <li>For data deletion requests, contact us via email</li>
+            </ul>
 
-        <h2>6. Çocukların Gizliliği</h2>
-        <p>Uygulamamız 13 yaşın altındaki çocuklardan bilerek kişisel bilgi toplamaz.</p>
+            <h2>5. Data Security</h2>
+            <ul>
+                <li>All data communication is protected with SSL/TLS encryption</li>
+                <li>Unauthorized access is prevented through Firebase security rules</li>
+                <li>Sensitive information (passwords, etc.) is not stored by us</li>
+            </ul>
 
-        <h2>7. Reklam Politikası</h2>
-        <p>Uygulamamız Google AdMob aracılığıyla reklam göstermektedir. AdMob kişiselleştirilmiş veya kişiselleştirilmemiş reklamlar gösterebilir ve reklam kimliği kullanabilir.</p>
+            <h2>6. Children's Privacy</h2>
+            <p>Our app does not knowingly collect personal information from children under 13.</p>
 
-        <h2>8. Değişiklikler</h2>
-        <p>Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler olduğunda uygulama içinden bildirim yapılacaktır.</p>
+            <h2>7. Advertising Policy</h2>
+            <p>Our app displays ads through Google AdMob. AdMob may show personalized or non-personalized ads and may use advertising identifiers.</p>
 
-        <h2>9. İletişim</h2>
-        <div class="highlight">
-            <strong>E-posta:</strong> ramazancebimde@gmail.com
+            <h2>8. Changes</h2>
+            <p>We may update this privacy policy from time to time. You will be notified of significant changes through the app.</p>
+
+            <h2>9. Contact</h2>
+            <div class="highlight">
+                <strong>Email:</strong> ramazancebimde@gmail.com
+            </div>
         </div>
 
         <div class="footer">
-            <p>© 2026 Ramazan Cebimde · Tüm hakları saklıdır</p>
+            <p>&copy; 2026 Ramazan Cebimde &middot; All rights reserved</p>
         </div>
     </div>
+
+    <script>
+        function switchLang(lang) {
+            document.getElementById('content-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('content-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        }
+        // Auto-detect language
+        if (navigator.language && !navigator.language.startsWith('tr')) {
+            switchLang('en');
+        }
+    </script>
 </body>
 </html>

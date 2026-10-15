@@ -79,6 +79,7 @@
             margin-bottom: 14px;
             padding-left: 14px;
             border-left: 3px solid #D4AF37;
+            scroll-margin-top: 16px;
         }
         h3 {
             color: #C0A84A;
@@ -113,6 +114,7 @@
             left: -4px;
             top: -2px;
         }
+        strong { color: #E8E0D0; }
         .highlight {
             background: rgba(212, 175, 55, 0.08);
             padding: 16px 20px;
@@ -122,10 +124,16 @@
             font-size: 15px;
         }
         .highlight strong { color: #D4AF37; }
+        .path {
+            color: #E8E0D0;
+            font-weight: 600;
+            white-space: normal;
+        }
         a {
             color: #5B9BD5;
             text-decoration: none;
             transition: color 0.2s;
+            overflow-wrap: anywhere;
         }
         a:hover { color: #7CB8E8; text-decoration: underline; }
         .footer {
@@ -157,173 +165,237 @@
             </div>
         </div>
 
-        <!-- TURKISH -->
-        <div id="content-tr" class="lang-content active">
-            <p class="subtitle">Gizlilik Politikasi</p>
-            <p class="date">Son Guncelleme: 22 Mart 2026</p>
+        <!-- TÜRKÇE -->
+        <div id="content-tr" class="lang-content active" lang="tr">
+            <p class="subtitle">Gizlilik Politikası</p>
+            <p class="date">Son Güncelleme: 15 Ekim 2026</p>
 
             <div class="highlight">
-                <strong>Ramazan Cebimde</strong> uygulamasi, kullanicilarinin gizliligine saygi duyar. Bu politika, uygulamamizin hangi verileri topladigini, nasil kullandigini ve nasil korudugunu aciklar.
+                <strong>Ramazan Cebimde</strong>, kullanıcılarının gizliliğine saygı duyar. Bu politika, uygulamanın hangi verileri işlediğini, bunları ne amaçla kullandığını, kimlerle paylaştığını ve verilerinizi nasıl silebileceğinizi açıklar.
             </div>
 
-            <h2>1. Toplanan Veriler</h2>
-            <h3>Hesap Bilgileri</h3>
-            <p>Google ile giris yapmaniz durumunda asagidaki bilgiler toplanir:</p>
+            <h2>1. Kısaca</h2>
             <ul>
-                <li>Google hesap adiniz</li>
-                <li>E-posta adresiniz</li>
-                <li>Profil fotografi URL'niz</li>
-            </ul>
-            <p>Bu bilgiler yalnizca uygulama ici kimlik dogrulama ve ayarlarinizi cihazlar arasi senkronize etmek icin kullanilir.</p>
-
-            <h3>Konum Bilgisi</h3>
-            <p>Uygulama, namaz vakitlerini dogru hesaplayabilmek icin konum bilgisine erisim talep edebilir.</p>
-            <ul>
-                <li>Yalnizca bulundugunuz sehri belirlemek icin kullanilir</li>
-                <li>Sunucularimizda saklanmaz</li>
-                <li>Ucuncu taraflarla paylasilmaz</li>
+                <li>Hesap açmak isteğe bağlıdır. Giriş yapmadan (misafir olarak) kullandığınızda ayarlarınız yalnızca telefonunuzda kalır.</li>
+                <li>Konumunuz yalnızca il ve ilçenizi bulmak ve kıble yönünü hesaplamak için kullanılır; koordinatlarınız saklanmaz.</li>
+                <li>Verilerinizi satmayız.</li>
+                <li>Hesabınızı ve buluttaki tüm verilerinizi uygulama içinden silebilirsiniz (bkz. <a href="#hesap-silme">Bölüm 6</a>).</li>
             </ul>
 
-            <h3>Kullanici Ayarlari</h3>
-            <p>Tercihleriniz cihazinizda ve giris yaptiyisaniz bulut uzerinde saklanir:</p>
+            <h2>2. İşlenen Veriler</h2>
+            <h3>Hesap bilgileri (yalnızca giriş yaparsanız)</h3>
+            <p>Google hesabınızla ya da e-posta adresi ve şifreyle giriş yapabilirsiniz.</p>
             <ul>
-                <li>Secili sehir ve bildirim tercihleri</li>
-                <li>Ses tercihleri ve ozel hatirlaticilar</li>
-                <li>Dil tercihi</li>
+                <li><strong>Google ile girişte:</strong> adınız, e-posta adresiniz ve profil fotoğrafınızın bağlantısı</li>
+                <li><strong>E-posta ile girişte:</strong> e-posta adresiniz. Şifreniz Google Firebase Authentication tarafından şifrelenmiş olarak saklanır; şifrenizi biz göremeyiz.</li>
+                <li>Firebase'in hesabınıza verdiği kullanıcı kimliği</li>
             </ul>
 
-            <h3>Cihaz Bilgisi</h3>
-            <p>Reklam hizmetleri kapsaminda Google AdMob, cihaziniz hakkinda anonim teknik bilgiler toplayabilir. Bu bilgiler dogrudan tarafimizca toplanmaz.</p>
-
-            <h2>2. Verilerin Kullanim Amaclari</h2>
+            <h3>Bulutta saklanan ayarlar (yalnızca giriş yaparsanız)</h3>
+            <p>Telefon değiştirdiğinizde ayarlarınız geri gelsin diye hesabınıza bağlı olarak Google Cloud Firestore'da saklanır:</p>
             <ul>
-                <li>Namaz vakitlerini dogru hesaplamak ve bildirmek</li>
-                <li>Iftar ve sahur hatirlaticlari gondermek</li>
-                <li>Kullanici ayarlarini cihazlar arasi senkronize etmek</li>
-                <li>Uygulama deneyimini iyilestirmek</li>
-                <li>Reklam gostermek (Google AdMob araciligiyla)</li>
+                <li>Seçtiğiniz il ve ilçe (adları ve Diyanet kimlik numaraları)</li>
+                <li>İftar, sahur ve vakit bildirimi tercihleri, ses seçimleri, bildirim gecikmesi ve oruç modu</li>
+                <li>Dil tercihiniz</li>
+                <li>Oluşturduğunuz hatırlatıcılar (başlık, saat, tekrar günleri, ses seçimi)</li>
+                <li>Seçtiğiniz zil sesinin veya özel ses dosyasının adı ve telefondaki konumu (dosyanın kendisi yüklenmez)</li>
+                <li>Son güncelleme zamanı</li>
             </ul>
 
-            <h2>3. Ucuncu Taraf Hizmetleri</h2>
+            <h3>Konum</h3>
             <ul>
-                <li><strong>Google Firebase</strong> - Kimlik dogrulama ve bulut veri depolama</li>
-                <li><strong>Google Sign-In</strong> - Google hesabiyla giris</li>
-                <li><strong>Google AdMob</strong> - Reklam gosterimi</li>
-                <li><strong>Diyanet Isleri Baskanligi API</strong> - Namaz vakitleri verisi</li>
-            </ul>
-            <p>Ilgili politikalar: <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikasi</a> &middot; <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Gizlilik Politikasi</a></p>
-
-            <h2>4. Veri Saklama ve Silme</h2>
-            <ul>
-                <li>Uygulamayi sildiginizde cihazinizdaki tum veriler otomatik olarak silinir</li>
-                <li>Bulut verileriniz icin hesabinizdan cikis yaparak silme talep edebilirsiniz</li>
-                <li>Veri silme talebi icin bize e-posta ile ulasabilirsiniz</li>
+                <li>Konum yalnızca <strong>Konumumu Kullan</strong> düğmesine dokunduğunuzda ve <strong>Kıble Pusulası</strong> ekranında kullanılır. İzin vermeden şehrinizi listeden seçebilirsiniz.</li>
+                <li>Koordinatlarınız, telefonunuzun yerleşik adres çözümleme hizmetiyle (Android'de genellikle Google tarafından sağlanır) il ve ilçe adına çevrilir. Kıble yönü telefonunuzda hesaplanır.</li>
+                <li>Koordinatlarınız bize veya namaz vakti sunucularına gönderilmez ve saklanmaz; yalnızca seçilen il ve ilçe kaydedilir.</li>
             </ul>
 
-            <h2>5. Veri Guvenligi</h2>
+            <h3>Yalnızca telefonunuzda kalan veriler</h3>
             <ul>
-                <li>Tum veri iletisimi SSL/TLS sifreleme ile korunmaktadir</li>
-                <li>Firebase guvenlik kurallari ile yetkisiz erisim engellenmektedir</li>
-                <li>Hassas bilgiler (sifreler vb.) tarafimizca saklanmamaktadir</li>
+                <li>Namaz vakitleri önbelleği, alarm planı, tesbih sayacı ve benzeri uygulama verileri</li>
+                <li>Seçtiğiniz özel ses dosyalarının kopyası (uygulamanın kendi klasöründe)</li>
+                <li>Misafir kullanımda tüm ayarlarınız</li>
             </ul>
 
-            <h2>6. Cocuklarin Gizliligi</h2>
-            <p>Uygulamamiz 13 yasinin altindaki cocuklardan bilerek kisisel bilgi toplamaz.</p>
+            <h3>Reklam ve cihaz bilgileri</h3>
+            <p>Uygulama, Google AdMob aracılığıyla reklam gösterir. AdMob; reklam kimliği, IP adresi, cihaz modeli, işletim sistemi sürümü ve reklam etkileşimleri gibi bilgileri Google'ın politikalarına göre toplar ve kişiselleştirilmiş reklam için kullanabilir. Bu bilgiler bize sizi tanımlayacak biçimde ulaşmaz. Reklamsız sürümü satın aldıysanız reklam yüklenmez.</p>
 
-            <h2>7. Reklam Politikasi</h2>
-            <p>Uygulamamiz Google AdMob araciligiyla reklam gostermektedir. AdMob kisisellestiriimis veya kisisellestirilmemis reklamlar gosterebilir ve reklam kimligi kullanabilir.</p>
+            <h3>Satın alma bilgileri</h3>
+            <p><strong>Reklamsız Kullan</strong> satın alımı Google Play Faturalandırma ile yapılır. Ödeme bilgileriniz (kart vb.) bize ulaşmaz; uygulama Google Play'den yalnızca satın alımın geçerli olup olmadığını öğrenir. Reklamsız hakkınız bulutta saklanmaz; her telefonda Google Play hesabınız üzerinden doğrulanır.</p>
 
-            <h2>8. Degisiklikler</h2>
-            <p>Bu gizlilik politikasini zaman zaman guncelleyebiliriz. Onemli degisiklikler oldugunda uygulama icinden bildirim yapilacaktir.</p>
+            <h2>3. Kullanım Amaçları</h2>
+            <ul>
+                <li>Seçtiğiniz yere göre namaz vakitlerini, imsakiyeyi ve kıble yönünü göstermek</li>
+                <li>İftar, sahur, vakit ve hatırlatıcı alarmlarını zamanında çalmak</li>
+                <li>Giriş yaptıysanız ayarlarınızı telefonlarınız arasında eşitlemek</li>
+                <li>Reklam göstermek ve reklamsız sürüm satın alımını doğrulamak</li>
+                <li>Duyuru ve güncelleme uyarısı gibi uygulama ayarlarını uzaktan güncellemek</li>
+            </ul>
 
-            <h2>9. Iletisim</h2>
+            <h2>4. Üçüncü Taraf Hizmetler</h2>
+            <ul>
+                <li><strong>Google Firebase Authentication</strong> — giriş ve hesap yönetimi</li>
+                <li><strong>Google Cloud Firestore</strong> — giriş yapan kullanıcıların ayarları</li>
+                <li><strong>Firebase Remote Config</strong> — duyuru, güncelleme uyarısı ve reklam ayarları gibi uygulama ayarları (Firebase kurulum kimliği kullanılır)</li>
+                <li><strong>Google ile Oturum Açma</strong> — Google hesabıyla giriş</li>
+                <li><strong>Google AdMob</strong> — reklam gösterimi</li>
+                <li><strong>Google Play Faturalandırma</strong> — reklamsız sürüm satın alımı</li>
+                <li><strong>Google Fonts</strong> — uygulamanın yazı tipi ilk açılışta Google sunucularından indirilir</li>
+                <li><strong>Namaz vakti verisi</strong> — Diyanet İşleri Başkanlığı vakitleri <em>ezanvakti.emushaf.net</em> üzerinden alınır ve bu sunucuya yalnızca seçtiğiniz ilçenin kimlik numarası gönderilir. Sunucuya ulaşılamazsa yedek olarak <em>api.aladhan.com</em> kullanılır ve yalnızca il adı gönderilir.</li>
+            </ul>
+            <p>Bu hizmetler, bağlantının doğası gereği IP adresinizi görebilir. Google hizmetleri verileri Türkiye dışındaki sunucularda işleyebilir. İlgili politikalar: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gizlilik Politikası</a> &middot; <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Gizlilik ve Güvenlik</a> &middot; <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google'ın iş ortağı uygulamalarındaki veri kullanımı</a></p>
+
+            <h2>5. Saklama Süresi</h2>
+            <ul>
+                <li>Buluttaki verileriniz hesabınız var olduğu sürece saklanır.</li>
+                <li>Hesaptan çıkış yapmak bulut verilerinizi silmez; silmek için hesabınızı silmeniz gerekir.</li>
+                <li>Telefonunuzdaki veriler, uygulamayı kaldırana veya uygulama verilerini temizleyene kadar kalır. Android'in otomatik yedeklemesi açıksa uygulama ayarları Google hesabınızdaki cihaz yedeğine de alınabilir; bu yedeği Google yönetir.</li>
+            </ul>
+
+            <h2 id="hesap-silme">6. Hesap ve Veri Silme</h2>
+            <h3>Uygulama içinden</h3>
+            <p><span class="path">Ayarlar → Hesabı Sil</span> (profil kartınızın hemen altında) → onaylayın → kimliğinizi doğrulayın (Google hesabınızı seçin ya da şifrenizi girin).</p>
+            <p>Bu işlem buluttaki kullanıcı kaydınızı (ayarlarınız ve hatırlatıcılarınız) ve Firebase hesabınızı kalıcı olarak siler; Google ile giriş yaptıysanız uygulamanın Google hesabınıza erişim izni de kaldırılır. İşlem geri alınamaz.</p>
+            <h3>Uygulama olmadan</h3>
+            <p>Hesabınıza kayıtlı e-posta adresinden <a href="mailto:destekramazancebimde@gmail.com">destekramazancebimde@gmail.com</a> adresine “Hesap silme talebi” konulu bir e-posta gönderin. Hesabınız ve buluttaki verileriniz silinir; talebiniz en geç 30 gün içinde sonuçlandırılır ve size bilgi verilir.</p>
+            <h3>Telefonunuzdaki veriler</h3>
+            <p>Uygulamayı kaldırarak ya da <span class="path">Android Ayarlar → Uygulamalar → Ramazan Cebimde → Depolama → Verileri temizle</span> yoluyla silebilirsiniz. Reklam kimliğinizi Android ayarlarından sıfırlayabilir veya silebilirsiniz. Satın alma kayıtlarınız Google Play tarafından, Google'ın politikalarına göre tutulur.</p>
+
+            <h2>7. Haklarınız</h2>
+            <p>6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 11. maddesi kapsamında; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi isteme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmişse düzeltilmesini, silinmesini veya yok edilmesini isteme, bu işlemlerin aktarıldığı üçüncü kişilere bildirilmesini isteme, yalnızca otomatik sistemlerle yapılan analiz sonucu aleyhinize bir sonuç çıkmasına itiraz etme ve kanuna aykırı işleme nedeniyle zarara uğrarsanız zararın giderilmesini talep etme haklarına sahipsiniz. Başvurularınızı aşağıdaki e-posta adresine iletebilirsiniz; en geç 30 gün içinde yanıtlanır.</p>
+
+            <h2>8. Veri Güvenliği</h2>
+            <ul>
+                <li>Uygulama ile sunucular arasındaki tüm iletişim TLS (HTTPS) ile şifrelenir.</li>
+                <li>Bulut verilerine erişim Firebase kimlik doğrulaması ve güvenlik kurallarıyla sınırlandırılır.</li>
+                <li>Şifreleriniz tarafımızdan görülmez ve saklanmaz.</li>
+            </ul>
+
+            <h2>9. Çocukların Gizliliği</h2>
+            <p>Uygulama genel kitleye yöneliktir ve 13 yaşından küçük çocuklardan bilerek kişisel veri toplamaz. Böyle bir veri toplandığını fark ederseniz bize yazın; sileriz.</p>
+
+            <h2>10. Değişiklikler</h2>
+            <p>Bu politikayı zaman zaman güncelleyebiliriz. Güncel metin her zaman bu sayfadadır ve en üstteki tarih değişir; önemli değişiklikleri uygulama içinde de duyururuz.</p>
+
+            <h2>11. İletişim</h2>
             <div class="highlight">
-                <strong>E-posta:</strong> destekramazancebimde@gmail.com
+                <strong>E-posta:</strong> <a href="mailto:destekramazancebimde@gmail.com">destekramazancebimde@gmail.com</a>
             </div>
         </div>
 
         <!-- ENGLISH -->
-        <div id="content-en" class="lang-content">
+        <div id="content-en" class="lang-content" lang="en">
             <p class="subtitle">Privacy Policy</p>
-            <p class="date">Last Updated: March 22, 2026</p>
+            <p class="date">Last Updated: October 15, 2026</p>
 
             <div class="highlight">
-                <strong>Ramazan Cebimde</strong> (Ramadan in My Pocket) respects the privacy of its users. This policy explains what data our app collects, how it is used, and how it is protected.
+                <strong>Ramazan Cebimde</strong> (Ramadan in My Pocket) respects the privacy of its users. This policy explains what data the app processes, why it is used, who it is shared with, and how you can delete it.
             </div>
 
-            <h2>1. Data Collected</h2>
-            <h3>Account Information</h3>
-            <p>When you sign in with Google, the following information is collected:</p>
+            <h2>1. In Short</h2>
             <ul>
-                <li>Your Google account name</li>
-                <li>Your email address</li>
-                <li>Your profile photo URL</li>
-            </ul>
-            <p>This information is used solely for in-app authentication and syncing your settings across devices.</p>
-
-            <h3>Location Information</h3>
-            <p>The app may request access to your location to accurately calculate prayer times.</p>
-            <ul>
-                <li>Used only to determine your city</li>
-                <li>Not stored on our servers</li>
-                <li>Not shared with third parties</li>
+                <li>An account is optional. If you use the app without signing in (as a guest), your settings stay only on your phone.</li>
+                <li>Your location is used only to find your province and district and to calculate the qibla direction; your coordinates are not stored.</li>
+                <li>We do not sell your data.</li>
+                <li>You can delete your account and all of your cloud data from within the app (see <a href="#account-deletion">Section 6</a>).</li>
             </ul>
 
-            <h3>User Settings</h3>
-            <p>Your preferences are stored on your device and, if signed in, in the cloud:</p>
+            <h2>2. Data We Process</h2>
+            <h3>Account information (only if you sign in)</h3>
+            <p>You can sign in with your Google account or with an email address and password.</p>
             <ul>
-                <li>Selected city and notification preferences</li>
-                <li>Sound preferences and custom reminders</li>
-                <li>Language preference</li>
+                <li><strong>Google sign-in:</strong> your name, email address and profile photo link</li>
+                <li><strong>Email sign-in:</strong> your email address. Your password is stored in encrypted form by Google Firebase Authentication; we cannot see it.</li>
+                <li>The user ID that Firebase assigns to your account</li>
             </ul>
 
-            <h3>Device Information</h3>
-            <p>Google AdMob may collect anonymous technical information about your device for advertising purposes. This data is not collected directly by us.</p>
-
-            <h2>2. Purpose of Data Use</h2>
+            <h3>Settings stored in the cloud (only if you sign in)</h3>
+            <p>So that your settings come back when you change phones, they are stored in Google Cloud Firestore, linked to your account:</p>
             <ul>
-                <li>Accurately calculate and display prayer times</li>
-                <li>Send iftar and suhoor reminders</li>
-                <li>Sync user settings across devices</li>
-                <li>Improve the app experience</li>
-                <li>Display ads (via Google AdMob)</li>
+                <li>Your selected province and district (names and Diyanet ID numbers)</li>
+                <li>Iftar, suhoor and prayer notification preferences, sound choices, notification delay and fasting mode</li>
+                <li>Your language preference</li>
+                <li>Reminders you create (title, time, repeat days, sound choice)</li>
+                <li>The name and on-device location of the ringtone or custom sound file you choose (the file itself is not uploaded)</li>
+                <li>Time of the last update</li>
             </ul>
 
-            <h2>3. Third-Party Services</h2>
+            <h3>Location</h3>
             <ul>
-                <li><strong>Google Firebase</strong> - Authentication and cloud data storage</li>
-                <li><strong>Google Sign-In</strong> - Google account authentication</li>
-                <li><strong>Google AdMob</strong> - Ad display</li>
-                <li><strong>Presidency of Religious Affairs (Diyanet) API</strong> - Prayer times data</li>
-            </ul>
-            <p>Related policies: <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> &middot; <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></p>
-
-            <h2>4. Data Retention and Deletion</h2>
-            <ul>
-                <li>All data on your device is automatically deleted when you uninstall the app</li>
-                <li>You can request deletion of cloud data by signing out of your account</li>
-                <li>For data deletion requests, contact us via email</li>
+                <li>Location is used only when you tap <strong>Use My Location</strong> and on the <strong>Qibla Compass</strong> screen. You can choose your city from the list without granting permission.</li>
+                <li>Your coordinates are converted to a province and district name by your phone's built-in geocoding service (usually provided by Google on Android). The qibla direction is calculated on your phone.</li>
+                <li>Your coordinates are not sent to us or to the prayer time servers and are not stored; only the selected province and district are saved.</li>
             </ul>
 
-            <h2>5. Data Security</h2>
+            <h3>Data that stays on your phone only</h3>
             <ul>
-                <li>All data communication is protected with SSL/TLS encryption</li>
-                <li>Unauthorized access is prevented through Firebase security rules</li>
-                <li>Sensitive information (passwords, etc.) is not stored by us</li>
+                <li>App data such as the prayer times cache, the alarm schedule and the tasbih counter</li>
+                <li>Copies of the custom sound files you choose (in the app's own folder)</li>
+                <li>All of your settings when you use the app as a guest</li>
             </ul>
 
-            <h2>6. Children's Privacy</h2>
-            <p>Our app does not knowingly collect personal information from children under 13.</p>
+            <h3>Advertising and device information</h3>
+            <p>The app shows ads through Google AdMob. AdMob collects information such as the advertising ID, IP address, device model, operating system version and ad interactions under Google's policies, and may use it for personalized ads. This information does not reach us in a form that identifies you. If you have purchased the ad-free version, no ads are loaded.</p>
 
-            <h2>7. Advertising Policy</h2>
-            <p>Our app displays ads through Google AdMob. AdMob may show personalized or non-personalized ads and may use advertising identifiers.</p>
+            <h3>Purchase information</h3>
+            <p>The <strong>Go Ad-Free</strong> purchase is made through Google Play Billing. Your payment details (card, etc.) never reach us; the app only learns from Google Play whether the purchase is valid. Your ad-free entitlement is not stored in the cloud; it is verified on each phone through your Google Play account.</p>
 
-            <h2>8. Changes</h2>
-            <p>We may update this privacy policy from time to time. You will be notified of significant changes through the app.</p>
+            <h2>3. Purposes of Use</h2>
+            <ul>
+                <li>Showing prayer times, the imsakiye (Ramadan timetable) and the qibla direction for your selected location</li>
+                <li>Sounding iftar, suhoor, prayer time and reminder alarms on time</li>
+                <li>Syncing your settings across your phones if you sign in</li>
+                <li>Showing ads and verifying the ad-free purchase</li>
+                <li>Remotely updating app settings such as announcements and update notices</li>
+            </ul>
 
-            <h2>9. Contact</h2>
+            <h2>4. Third-Party Services</h2>
+            <ul>
+                <li><strong>Google Firebase Authentication</strong> — sign-in and account management</li>
+                <li><strong>Google Cloud Firestore</strong> — settings of signed-in users</li>
+                <li><strong>Firebase Remote Config</strong> — app settings such as announcements, update notices and ad settings (uses the Firebase installation ID)</li>
+                <li><strong>Google Sign-In</strong> — signing in with a Google account</li>
+                <li><strong>Google AdMob</strong> — ads</li>
+                <li><strong>Google Play Billing</strong> — the ad-free purchase</li>
+                <li><strong>Google Fonts</strong> — the app's font is downloaded from Google servers on first launch</li>
+                <li><strong>Prayer time data</strong> — the Presidency of Religious Affairs (Diyanet) times are fetched from <em>ezanvakti.emushaf.net</em>, and only the ID number of your selected district is sent to it. If that server cannot be reached, <em>api.aladhan.com</em> is used as a fallback and only the province name is sent.</li>
+            </ul>
+            <p>By the nature of a network connection, these services can see your IP address. Google services may process data on servers outside Turkey. Related policies: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> &middot; <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a> &middot; <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses data from partner apps</a></p>
+
+            <h2>5. Retention</h2>
+            <ul>
+                <li>Your cloud data is kept for as long as your account exists.</li>
+                <li>Signing out does not delete your cloud data; to delete it, you need to delete your account.</li>
+                <li>Data on your phone stays until you uninstall the app or clear its data. If Android's automatic backup is on, the app's settings may also be included in your device backup in your Google account; that backup is managed by Google.</li>
+            </ul>
+
+            <h2 id="account-deletion">6. Account and Data Deletion</h2>
+            <h3>In the app</h3>
+            <p><span class="path">Settings → Delete Account</span> (just below your profile card) → confirm → verify your identity (choose your Google account or enter your password).</p>
+            <p>This permanently deletes your cloud record (your settings and reminders) and your Firebase account; if you signed in with Google, the app's access to your Google account is also removed. This cannot be undone.</p>
+            <h3>Without the app</h3>
+            <p>Send an email with the subject “Account deletion request” to <a href="mailto:destekramazancebimde@gmail.com">destekramazancebimde@gmail.com</a> from the email address registered to your account. Your account and cloud data will be deleted; your request will be completed within 30 days at the latest and you will be notified.</p>
+            <h3>Data on your phone</h3>
+            <p>You can delete it by uninstalling the app or via <span class="path">Android Settings → Apps → Ramazan Cebimde → Storage → Clear data</span>. You can reset or delete your advertising ID in Android settings. Your purchase records are kept by Google Play under Google's policies.</p>
+
+            <h2>7. Your Rights</h2>
+            <p>Under Article 11 of the Turkish Personal Data Protection Law No. 6698 (KVKK), you have the right to learn whether your personal data is processed and, if so, to request information about it; to learn the purpose of processing and whether it is used accordingly; to know the third parties it is transferred to; to request correction if it is incomplete or inaccurate, and its deletion or destruction; to request that these actions be notified to the third parties it was transferred to; to object to a result against you arising solely from automated analysis; and to claim compensation for damages caused by unlawful processing. You can send your requests to the email address below; they will be answered within 30 days at the latest.</p>
+
+            <h2>8. Data Security</h2>
+            <ul>
+                <li>All communication between the app and servers is encrypted with TLS (HTTPS).</li>
+                <li>Access to cloud data is restricted by Firebase authentication and security rules.</li>
+                <li>We never see or store your password.</li>
+            </ul>
+
+            <h2>9. Children's Privacy</h2>
+            <p>The app is intended for a general audience and does not knowingly collect personal data from children under 13. If you become aware that such data has been collected, please contact us and we will delete it.</p>
+
+            <h2>10. Changes</h2>
+            <p>We may update this policy from time to time. The current version is always on this page and the date at the top changes; we also announce significant changes in the app.</p>
+
+            <h2>11. Contact</h2>
             <div class="highlight">
-                <strong>Email:</strong> destekramazancebimde@gmail.com
+                <strong>Email:</strong> <a href="mailto:destekramazancebimde@gmail.com">destekramazancebimde@gmail.com</a>
             </div>
         </div>
 
@@ -338,9 +410,15 @@
             document.getElementById('content-en').classList.toggle('active', lang === 'en');
             document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.documentElement.lang = lang;
         }
-        // Auto-detect language
-        if (navigator.language && !navigator.language.startsWith('tr')) {
+        // Hesap silme bağlantısı (Google Play "hesap silme URL'si") doğrudan
+        // ilgili dildeki bölümü açar; yoksa tarayıcı diline göre seçilir.
+        var anchorLang = { '#hesap-silme': 'tr', '#account-deletion': 'en' }[location.hash];
+        if (anchorLang) {
+            switchLang(anchorLang);
+            document.getElementById(location.hash.slice(1)).scrollIntoView();
+        } else if (navigator.language && !navigator.language.startsWith('tr')) {
             switchLang('en');
         }
     </script>

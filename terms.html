@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramazan Cebimde - Hizmet Şartları / Terms of Service</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #E8E0D0;
+            background: linear-gradient(135deg, #0A1628 0%, #1A2744 50%, #0D1B2A 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: rgba(26, 39, 68, 0.6);
+            padding: 48px 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .header .moon { font-size: 48px; margin-bottom: 12px; }
+        h1 {
+            color: #D4AF37;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .subtitle {
+            color: #8A9BB5;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .date {
+            color: #6B7A8F;
+            font-size: 13px;
+            font-style: italic;
+        }
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .lang-btn {
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: transparent;
+            color: #8A9BB5;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            background: rgba(212, 175, 55, 0.15);
+            color: #D4AF37;
+            border-color: #D4AF37;
+        }
+        .lang-btn:hover { border-color: #D4AF37; }
+        h2 {
+            color: #D4AF37;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            padding-left: 14px;
+            border-left: 3px solid #D4AF37;
+            scroll-margin-top: 16px;
+        }
+        h3 {
+            color: #C0A84A;
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 14px;
+            color: #C8C0B0;
+            font-size: 15px;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 14px;
+            list-style: none;
+        }
+        li {
+            margin-bottom: 8px;
+            color: #C8C0B0;
+            font-size: 15px;
+            padding-left: 12px;
+            position: relative;
+        }
+        li::before {
+            content: '\00B7';
+            color: #D4AF37;
+            font-weight: bold;
+            font-size: 20px;
+            position: absolute;
+            left: -4px;
+            top: -2px;
+        }
+        strong { color: #E8E0D0; }
+        .highlight {
+            background: rgba(212, 175, 55, 0.08);
+            padding: 16px 20px;
+            border-left: 3px solid #D4AF37;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+        .highlight strong { color: #D4AF37; }
+        .path {
+            color: #E8E0D0;
+            font-weight: 600;
+            white-space: normal;
+        }
+        a {
+            color: #5B9BD5;
+            text-decoration: none;
+            transition: color 0.2s;
+            overflow-wrap: anywhere;
+        }
+        a:hover { color: #7CB8E8; text-decoration: underline; }
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            color: #5A6577;
+            font-size: 13px;
+        }
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            .container { padding: 28px 20px; border-radius: 16px; }
+            h1 { font-size: 24px; }
+            h2 { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="moon">&#127769;</div>
+            <h1>Ramazan Cebimde</h1>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLang('tr')" id="btn-tr">&#127481;&#127479; TR</button>
+                <button class="lang-btn" onclick="switchLang('en')" id="btn-en">&#127468;&#127463; EN</button>
+            </div>
+        </div>
+
+        <!-- TÜRKÇE -->
+        <div id="content-tr" class="lang-content active" lang="tr">
+            <p class="subtitle">Hizmet Şartları</p>
+            <p class="date">Son Güncelleme: 5 Kasım 2026</p>
+
+            <div class="highlight">
+                <strong>Ramazan Cebimde</strong> uygulamasını (uygulama içinde dönemine göre <em>Ezan Cebimde</em> adıyla da görünür), Google Play'de <strong>BlueDevelopment</strong> adıyla yayımlayan Musa Can Bacak (“biz”) geliştirir ve sunar. Bu şartlar uygulamanın kullanımını düzenler. Uygulamayı kullanarak bu şartları kabul etmiş olursunuz; kabul etmiyorsanız uygulamayı kullanmayın.
+            </div>
+
+            <p>Verilerinizin nasıl işlendiği ayrı bir metinde anlatılır: <a href="https://musacanbacak.github.io/privacy-policy.html" target="_blank" rel="noopener">Gizlilik Politikası ve KVKK Aydınlatma Metni</a>. Bu şartları kabul etmek, kişisel verileriniz için açık rıza vermek anlamına gelmez; açık rızalar uygulamada ayrıca sorulur.</p>
+
+            <h2>1. Hizmet</h2>
+            <p>Uygulama; seçtiğiniz yere göre namaz vakitlerini, imsakiyeyi ve kıble yönünü gösterir, ezan ve hatırlatıcı alarmlarını çalar; tesbih sayacı, dinî günler takvimi ve günlük ayet sunar. Uygulama ücretsizdir ve reklam içerir; reklamlar isteğe bağlı bir satın alımla kaldırılabilir.</p>
+            <p>Uygulamayı bireysel bir geliştirici sunar. Uygulama, Diyanet İşleri Başkanlığı'nın ya da başka bir kurumun resmî uygulaması değildir ve bu kurumlarla bağlantısı yoktur.</p>
+
+            <h2>2. Kimler Kullanabilir</h2>
+            <ul>
+                <li>Uygulamanın tamamı hesap açmadan kullanılabilir.</li>
+                <li>13 yaşından küçükler hesap açmamalıdır.</li>
+                <li>18 yaşından küçükler, hesap açmak ve satın alma yapmak için veli veya vasilerinin iznini almalıdır.</li>
+            </ul>
+
+            <h2>3. Hesap</h2>
+            <ul>
+                <li>Hesap isteğe bağlıdır; ayarlarınızı yedeklemeye ve telefonlarınız arasında taşımaya yarar.</li>
+                <li>Kayıt bilgilerinizin doğruluğundan ve şifrenizin güvenliğinden siz sorumlusunuz.</li>
+                <li>Hesabınızı istediğiniz zaman <span class="path">Ayarlar → Hesabı Sil</span> yoluyla silebilirsiniz.</li>
+                <li>Bu şartlara aykırı kullanım halinde hesabınızı askıya alabilir veya kapatabiliriz.</li>
+            </ul>
+
+            <h2>4. Namaz Vakitleri ve Dinî Bilgiler</h2>
+            <p>Uygulamadaki bilgileri özenle sunmaya çalışırız, ancak hatasız olduklarını garanti edemeyiz.</p>
+            <ul>
+                <li><strong>Namaz vakitleri:</strong> Diyanet İşleri Başkanlığı verilerine dayanır ve üçüncü taraf bir sunucu üzerinden alınır. Bu sunucuya ulaşılamazsa yedek bir kaynaktan alınan vakitler gösterilebilir; bu vakitler farklı olabilir. Veride hata, gecikme veya kesinti olabilir.</li>
+                <li><strong>Hicri tarih ve dinî günler:</strong> “Tahmini” olarak işaretlenen tarihler hesaplamaya dayanır ve Diyanet açıkladığında değişebilir. Ramazan başlangıcı ve bayram gibi günler için resmî açıklama esastır.</li>
+                <li><strong>Kıble yönü:</strong> Telefonunuzun konum ve pusula sensörlerine bağlıdır ve yaklaşıktır. Metal nesneler, mıknatıslar ve sensör hataları sonucu etkileyebilir. Pusula sensörü olmayan cihazlarda yalnızca kıble açısı gösterilir.</li>
+                <li><strong>Ayet mealleri:</strong> Ayetlerin anlamını anlaşılır bir dille aktarmayı amaçlar. Kur'an'ın Arapça aslının yerini tutmaz; fetva veya bağlayıcı dinî görüş değildir. Bir hata fark ederseniz bize yazın.</li>
+            </ul>
+            <p>İbadetle ilgili önemli konularda resmî kaynaklara ve din görevlilerine başvurun.</p>
+
+            <h2>5. Alarmlar ve Bildirimler</h2>
+            <p>Alarmlar ve bildirimler telefonunuzun ayarlarına bağlıdır. Telefon kapalıysa, bildirim veya alarm izinleri kapatılmışsa, pil tasarrufu ya da üreticinin arka plan kısıtlamaları devredeyse veya alarm sesi kısılmışsa alarmlar gecikebilir ya da hiç çalmayabilir. <span class="path">Ayarlar → Alarm Güvenilirliği</span> bölümü bu ayarları gözden geçirmenize yardım eder.</p>
+            <p>Sahura kalkmak gibi önemli durumlarda uygulamayı tek uyarı kaynağınız olarak kullanmayın.</p>
+
+            <h2>6. Reklamlar</h2>
+            <p>Uygulama, Google AdMob aracılığıyla reklam gösterir. Reklamların içeriğinden ve reklamlardan gidilen sitelerden reklamverenler ve bu sitelerin sahipleri sorumludur. Kişiselleştirilmiş reklam tercihinizi <span class="path">Ayarlar → Gizlilik ve İzinler</span> bölümünden değiştirebilirsiniz.</p>
+
+            <h2>7. Reklamsız Kullan Satın Alımı</h2>
+            <ul>
+                <li><strong>Reklamsız Kullan</strong> tek seferlik bir ödemedir; abonelik değildir ve otomatik olarak yenilenmez. Yalnızca reklamları kaldırır, başka bir özellik açmaz.</li>
+                <li>Fiyat, satın almadan önce uygulamada ve Google Play ödeme ekranında gösterilir. Ödeme ve faturalandırma Google Play üzerinden yapılır ve <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play Hizmet Şartları</a>'na tabidir.</li>
+                <li>Bu hak, satın alımı yaptığınız Google Play hesabına bağlıdır. Aynı hesapla başka bir telefonda <strong>Satın alımlarımı geri yükle</strong> düğmesini kullanabilirsiniz. Uygulamadaki hesabınızı silmek bu hakkı etkilemez.</li>
+                <li>Bu hak, uygulamanın sunulduğu süre boyunca geçerlidir.</li>
+                <li><strong>Cayma hakkı:</strong> Reklamsız kullanım ödeme onaylanır onaylanmaz açıldığı için, Mesafeli Sözleşmeler Yönetmeliği'nin 15. maddesinin birinci fıkrasının (ğ) bendi uyarınca cayma hakkı bulunmaz.</li>
+                <li><strong>İade:</strong> İade talepleri <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Google Play iade politikasına</a> göre değerlendirilir. Kanundan doğan tüketici haklarınız saklıdır.</li>
+            </ul>
+
+            <h2>8. Yasak Kullanımlar</h2>
+            <p>Uygulamayı kullanırken şunları yapamazsınız:</p>
+            <ul>
+                <li>Uygulamayı yasalara aykırı amaçlarla kullanmak</li>
+                <li>Yasaların izin verdiği durumlar dışında uygulamanın kaynak kodunu elde etmeye çalışmak, uygulamayı değiştirmek, kopyalayıp dağıtmak veya satmak</li>
+                <li>Güvenlik önlemlerini aşmaya ya da başkasının hesabına erişmeye çalışmak</li>
+                <li>Sunuculara otomatik araçlarla aşırı yük bindirmek</li>
+                <li>Reklamlara yapay olarak tıklamak veya reklam gösterimlerini manipüle etmek</li>
+            </ul>
+
+            <h2>9. Fikrî Haklar</h2>
+            <p>Uygulamanın yazılımı, tasarımı, adı ve görselleri bize veya lisans verenlerimize aittir. Uygulamayı kişisel ve ticari olmayan amaçlarla kullanmanız için size devredilemez bir kullanım hakkı veririz. Üçüncü taraf bileşenler kendi lisanslarına tabidir (örneğin Poppins yazı tipi: SIL Open Font License). Alarm sesi olarak seçtiğiniz kendi dosyalarınızı kullanma hakkına sahip olmaktan siz sorumlusunuz.</p>
+
+            <h2>10. Hizmetin Değişmesi veya Sona Ermesi</h2>
+            <ul>
+                <li>Özellik ekleyebilir, değiştirebilir veya kaldırabilir; uygulamayı geçici ya da kalıcı olarak durdurabiliriz. Kalıcı olarak sonlandıracaksak mümkünse önceden duyururuz.</li>
+                <li>Uygulamanın bazı bölümleri internet bağlantısı ve üçüncü taraf hizmetler (Google, namaz vakti sunucuları) gerektirir. Bu hizmetlerdeki kesintiler uygulamayı etkileyebilir.</li>
+                <li>Uygulamayı kullanmaya devam etmek için zaman zaman güncelleme yüklemeniz gerekebilir.</li>
+            </ul>
+
+            <h2>11. Sorumluluğun Sınırı</h2>
+            <p>Uygulama “olduğu gibi” sunulur; kesintisiz veya hatasız çalışacağı garanti edilmez. Kanunun izin verdiği ölçüde; vakit, tarih, kıble veya meal bilgilerindeki hatalardan, alarmın çalmamasından ya da uygulamanın kullanılamamasından doğan zararlardan sorumlu değiliz.</p>
+            <p>Bu sınırlama, kast ve ağır kusurdan doğan sorumluluğumuzu ve tüketici hakları dahil kanunla sınırlanamayan haklarınızı ortadan kaldırmaz.</p>
+
+            <h2>12. Şartlarda Değişiklik</h2>
+            <p>Bu şartları güncelleyebiliriz. Güncel metin her zaman bu sayfadadır ve en üstteki tarih değişir; esaslı değişiklikleri uygulama içinde de duyururuz. Değişiklikten sonra uygulamayı kullanmaya devam etmeniz yeni şartları kabul ettiğiniz anlamına gelir. Kabul etmiyorsanız uygulamayı kullanmayı bırakabilir ve hesabınızı silebilirsiniz.</p>
+
+            <h2>13. Geçerli Hukuk ve Uyuşmazlıklar</h2>
+            <ul>
+                <li>Bu şartlara Türkiye Cumhuriyeti hukuku uygulanır.</li>
+                <li>6502 sayılı Tüketicinin Korunması Hakkında Kanun'dan doğan haklarınız saklıdır: her yıl belirlenen parasal sınırlar içinde yerleşim yerinizdeki Tüketici Hakem Heyetine, bu sınırların üzerinde Tüketici Mahkemesine başvurabilirsiniz.</li>
+                <li>Bir madde geçersiz sayılırsa diğer maddeler geçerliliğini korur.</li>
+                <li>Türkçe ve İngilizce metinler arasında fark olursa Türkçe metin esas alınır.</li>
+            </ul>
+
+            <h2>14. İletişim</h2>
+            <div class="highlight">
+                <strong>Geliştirici:</strong> Musa Can Bacak (Google Play'de: BlueDevelopment)<br>
+                <strong>E-posta:</strong> <a href="mailto:destekramazancebimde@gmail.com">destekramazancebimde@gmail.com</a>
+            </div>
+        </div>
+
+        <!-- ENGLISH -->
+        <div id="content-en" class="lang-content" lang="en">
+            <p class="subtitle">Terms of Service</p>
+            <p class="date">Last Updated: November 5, 2026</p>
+
+            <div class="highlight">
+                <strong>Ramazan Cebimde</strong> (Ramadan in My Pocket; depending on the time of year, also shown in the app as <em>Adhan in My Pocket</em>) is developed and provided by Musa Can Bacak (“we”), who publishes on Google Play as <strong>BlueDevelopment</strong>. These terms govern your use of the app. By using the app you accept these terms; if you do not accept them, do not use the app.
+            </div>
+
+            <p>How your data is processed is explained in a separate text: <a href="https://musacanbacak.github.io/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy and KVKK Privacy Notice</a>. Accepting these terms does not mean giving explicit consent for your personal data; explicit consents are asked separately in the app.</p>
+
+            <h2>1. The Service</h2>
+            <p>The app shows prayer times, the imsakiye (Ramadan timetable) and the qibla direction for your selected location, sounds adhan and reminder alarms, and offers a tasbih counter, a calendar of religious days and a daily verse. The app is free and contains ads; ads can be removed with an optional purchase.</p>
+            <p>The app is provided by an individual developer. It is not an official app of the Presidency of Religious Affairs (Diyanet) or any other institution and is not affiliated with them.</p>
+
+            <h2>2. Who Can Use the App</h2>
+            <ul>
+                <li>The whole app can be used without an account.</li>
+                <li>Children under 13 should not create an account.</li>
+                <li>Anyone under 18 should get permission from a parent or guardian to create an account or make a purchase.</li>
+            </ul>
+
+            <h2>3. Account</h2>
+            <ul>
+                <li>An account is optional; it lets you back up your settings and move them between your phones.</li>
+                <li>You are responsible for the accuracy of your registration details and the security of your password.</li>
+                <li>You can delete your account at any time via <span class="path">Settings → Delete Account</span>.</li>
+                <li>We may suspend or close your account if it is used in breach of these terms.</li>
+            </ul>
+
+            <h2>4. Prayer Times and Religious Information</h2>
+            <p>We try to present the information in the app with care, but we cannot guarantee that it is free of errors.</p>
+            <ul>
+                <li><strong>Prayer times:</strong> based on Presidency of Religious Affairs (Diyanet) data and fetched through a third-party server. If that server cannot be reached, times from a fallback source may be shown; these times may differ. The data may contain errors, delays or interruptions.</li>
+                <li><strong>Hijri dates and religious days:</strong> dates marked “estimated” are based on calculation and may change once Diyanet announces them. For days such as the start of Ramadan and Eid, the official announcement prevails.</li>
+                <li><strong>Qibla direction:</strong> depends on your phone's location and compass sensors and is approximate. Metal objects, magnets and sensor errors can affect the result. On devices without a compass sensor, only the qibla angle is shown.</li>
+                <li><strong>Verse translations:</strong> aim to convey the meaning of the verses in clear language. They do not replace the original Arabic text of the Quran and are not a fatwa or a binding religious opinion. If you notice an error, please write to us.</li>
+            </ul>
+            <p>For important matters of worship, please refer to official sources and religious officials.</p>
+
+            <h2>5. Alarms and Notifications</h2>
+            <p>Alarms and notifications depend on your phone's settings. If the phone is off, notification or alarm permissions are turned off, battery saving or the manufacturer's background restrictions are active, or the alarm volume is turned down, alarms may be delayed or may not sound at all. The <span class="path">Settings → Alarm Reliability</span> section helps you review these settings.</p>
+            <p>For important occasions such as waking up for suhoor, do not rely on the app as your only alert.</p>
+
+            <h2>6. Ads</h2>
+            <p>The app shows ads through Google AdMob. Advertisers and the owners of the sites that ads lead to are responsible for the content of those ads and sites. You can change your personalized ads choice under <span class="path">Settings → Privacy &amp; Permissions</span>.</p>
+
+            <h2>7. The Go Ad-Free Purchase</h2>
+            <ul>
+                <li><strong>Go Ad-Free</strong> is a one-time payment; it is not a subscription and does not renew automatically. It only removes ads and does not unlock any other feature.</li>
+                <li>The price is shown in the app and on the Google Play payment screen before you buy. Payment and billing are handled through Google Play and are subject to the <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play Terms of Service</a>.</li>
+                <li>This entitlement is linked to the Google Play account you purchased with. With the same account, you can use the <strong>Restore my purchases</strong> button on another phone. Deleting your account in the app does not affect this entitlement.</li>
+                <li>This entitlement is valid for as long as the app is provided.</li>
+                <li><strong>Right of withdrawal:</strong> as ad-free use is unlocked as soon as the payment is confirmed, there is no right of withdrawal under Article 15(1)(ğ) of the Turkish Distance Contracts Regulation.</li>
+                <li><strong>Refunds:</strong> refund requests are handled under <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Google Play's refund policy</a>. Your statutory consumer rights are not affected.</li>
+            </ul>
+
+            <h2>8. Prohibited Use</h2>
+            <p>When using the app, you may not:</p>
+            <ul>
+                <li>Use the app for unlawful purposes</li>
+                <li>Except where the law allows it, try to obtain the app's source code, or modify, copy, distribute or sell the app</li>
+                <li>Try to bypass security measures or access someone else's account</li>
+                <li>Overload the servers with automated tools</li>
+                <li>Click on ads artificially or manipulate ad impressions</li>
+            </ul>
+
+            <h2>9. Intellectual Property</h2>
+            <p>The app's software, design, name and images belong to us or our licensors. We grant you a non-transferable right to use the app for personal, non-commercial purposes. Third-party components are subject to their own licenses (for example, the Poppins typeface: SIL Open Font License). You are responsible for having the right to use your own files that you choose as alarm sounds.</p>
+
+            <h2>10. Changes to or End of the Service</h2>
+            <ul>
+                <li>We may add, change or remove features, and may suspend the app temporarily or permanently. If we are going to end it permanently, we will announce this in advance where possible.</li>
+                <li>Some parts of the app require an internet connection and third-party services (Google, prayer time servers). Interruptions in these services may affect the app.</li>
+                <li>You may need to install an update from time to time to keep using the app.</li>
+            </ul>
+
+            <h2>11. Limitation of Liability</h2>
+            <p>The app is provided “as is”; we do not guarantee that it will work without interruption or errors. To the extent permitted by law, we are not liable for damages arising from errors in prayer time, date, qibla or translation information, from an alarm not sounding, or from the app being unavailable.</p>
+            <p>This limitation does not remove our liability for intent and gross negligence, or your rights that cannot be limited by law, including your consumer rights.</p>
+
+            <h2>12. Changes to These Terms</h2>
+            <p>We may update these terms. The current version is always on this page and the date at the top changes; we also announce material changes in the app. Continuing to use the app after a change means you accept the new terms. If you do not accept them, you can stop using the app and delete your account.</p>
+
+            <h2>13. Governing Law and Disputes</h2>
+            <ul>
+                <li>These terms are governed by the laws of the Republic of Türkiye.</li>
+                <li>Your rights under Consumer Protection Law No. 6502 are not affected: within the monetary limits set each year you can apply to the consumer arbitration committee (Tüketici Hakem Heyeti) where you live, and above those limits to the consumer court (Tüketici Mahkemesi).</li>
+                <li>If any clause is held invalid, the other clauses remain in effect.</li>
+                <li>If the Turkish and English texts differ, the Turkish text prevails.</li>
+            </ul>
+
+            <h2>14. Contact</h2>
+            <div class="highlight">
+                <strong>Developer:</strong> Musa Can Bacak (BlueDevelopment on Google Play)<br>
+                <strong>Email:</strong> <a href="mailto:destekramazancebimde@gmail.com">destekramazancebimde@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Musa Can Bacak (BlueDevelopment) &middot; Ramazan Cebimde</p>
+        </div>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.getElementById('content-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('content-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.documentElement.lang = lang;
+        }
+        if (navigator.language && !navigator.language.startsWith('tr')) {
+            switchLang('en');
+        }
+    </script>
+</body>
+</html>

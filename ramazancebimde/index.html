@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!--
+  Ramazan Cebimde tanıtım sayfası (Play Store'daki "Web sitesi" bağlantısı).
+  Yayın adı: musacanbacak.github.io → ramazancebimde/index.html
+  icon.png: assets/images/app_icon_512.png
+  Tasarım privacy_policy.html ve terms.html ile aynıdır.
+-->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramazan Cebimde - Namaz Vakitleri, Ezan Alarmı ve İmsakiye</title>
+    <meta name="description" content="Ramazan Cebimde: Diyanet verilerine dayalı namaz vakitleri, ezan ve hatırlatıcı alarmları, iftar ve sahur geri sayımı, imsakiye ve kıble yönü. Android için Google Play'de.">
+    <link rel="canonical" href="https://musacanbacak.github.io/ramazancebimde/">
+    <link rel="icon" type="image/png" href="/ramazancebimde/icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ramazan Cebimde">
+    <meta property="og:description" content="Namaz vakitleri, ezan alarmları, imsakiye ve kıble yönü tek uygulamada.">
+    <meta property="og:image" content="https://musacanbacak.github.io/ramazancebimde/icon.png">
+    <meta property="og:url" content="https://musacanbacak.github.io/ramazancebimde/">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #E8E0D0;
+            background: linear-gradient(135deg, #0A1628 0%, #1A2744 50%, #0D1B2A 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: rgba(26, 39, 68, 0.6);
+            padding: 48px 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .app-icon {
+            display: block;
+            width: 112px;
+            height: 112px;
+            margin: 0 auto 16px;
+            border-radius: 26px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+        }
+        h1 {
+            color: #D4AF37;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .lang-btn {
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: transparent;
+            color: #8A9BB5;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            background: rgba(212, 175, 55, 0.15);
+            color: #D4AF37;
+            border-color: #D4AF37;
+        }
+        .lang-btn:hover { border-color: #D4AF37; }
+        .tagline {
+            text-align: center;
+            color: #E8E0D0;
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+        .cta { text-align: center; margin-bottom: 8px; }
+        .play-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 999px;
+            background: #D4AF37;
+            color: #0A1628;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .play-btn:hover { background: #E3C25A; color: #0A1628; text-decoration: none; }
+        .cta-note {
+            color: #8A9BB5;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+        h2 {
+            color: #D4AF37;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            padding-left: 14px;
+            border-left: 3px solid #D4AF37;
+        }
+        p {
+            margin-bottom: 14px;
+            color: #C8C0B0;
+            font-size: 15px;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 14px;
+            list-style: none;
+        }
+        li {
+            margin-bottom: 8px;
+            color: #C8C0B0;
+            font-size: 15px;
+            padding-left: 12px;
+            position: relative;
+        }
+        li::before {
+            content: '\00B7';
+            color: #D4AF37;
+            font-weight: bold;
+            font-size: 20px;
+            position: absolute;
+            left: -4px;
+            top: -2px;
+        }
+        strong { color: #E8E0D0; }
+        .highlight {
+            background: rgba(212, 175, 55, 0.08);
+            padding: 16px 20px;
+            border-left: 3px solid #D4AF37;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+        .highlight strong { color: #D4AF37; }
+        .note {
+            color: #8A9BB5;
+            font-size: 13px;
+            margin-top: 24px;
+        }
+        a {
+            color: #5B9BD5;
+            text-decoration: none;
+            transition: color 0.2s;
+            overflow-wrap: anywhere;
+        }
+        a:hover { color: #7CB8E8; text-decoration: underline; }
+        a:focus-visible, .lang-btn:focus-visible {
+            outline: 2px solid #D4AF37;
+            outline-offset: 3px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            color: #5A6577;
+            font-size: 13px;
+        }
+        .footer p { color: #5A6577; font-size: 13px; margin-bottom: 0; }
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            .container { padding: 28px 20px; border-radius: 16px; }
+            h1 { font-size: 26px; }
+            h2 { font-size: 16px; }
+            .tagline { font-size: 16px; }
+            .app-icon { width: 96px; height: 96px; border-radius: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="header">
+            <img class="app-icon" src="/ramazancebimde/icon.png" width="112" height="112" alt="Ramazan Cebimde simgesi">
+            <h1>Ramazan Cebimde</h1>
+            <div class="lang-switcher">
+                <button type="button" class="lang-btn active" onclick="switchLang('tr')" id="btn-tr" aria-pressed="true">&#127481;&#127479; TR</button>
+                <button type="button" class="lang-btn" onclick="switchLang('en')" id="btn-en" aria-pressed="false">&#127468;&#127463; EN</button>
+            </div>
+        </div>
+
+        <!-- TÜRKÇE -->
+        <div id="content-tr" class="lang-content active" lang="tr">
+            <p class="tagline">Namaz vakitleri, ezan alarmları, imsakiye ve kıble yönü tek uygulamada.</p>
+            <div class="cta">
+                <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.ramazancebimde.ramazan_cebimde" target="_blank" rel="noopener">Google Play'den İndir</a>
+                <p class="cta-note">Android için ücretsiz. Reklam içerir; reklamlar isteğe bağlı bir satın alımla kaldırılabilir.</p>
+            </div>
+
+            <h2>Neler Var?</h2>
+            <ul>
+                <li>Diyanet verilerine dayalı namaz vakitleri ve aylık imsakiye</li>
+                <li>Ezan ve hatırlatıcı alarmları; her vakit için ayrı bildirim ayarı</li>
+                <li>İftar ve sahur geri sayımı, Ramazan sayacı</li>
+                <li>Kıble yönü</li>
+                <li>Tesbih sayacı ve dinî günler takvimi</li>
+                <li>Her gün Kur'an'dan bir ayet</li>
+                <li>Ana ekran widget'ı ve renk temaları</li>
+                <li>Hesap açmadan tam kullanım; isterseniz hesapla ayarlarınızı yedekleme</li>
+                <li>Türkçe ve İngilizce</li>
+            </ul>
+
+            <h2>Gizlilik ve Hesap</h2>
+            <ul>
+                <li><a href="/privacy-policy.html">Gizlilik Politikası ve KVKK Aydınlatma Metni</a></li>
+                <li><a href="/terms.html">Hizmet Şartları</a></li>
+                <li><a href="/privacy-policy.html#hesap-silme">Hesabınızı ve verilerinizi silme</a></li>
+            </ul>
+
+            <h2>İletişim</h2>
+            <div class="highlight">
+                <strong>Geliştirici:</strong> Musa Can Bacak (Google Play'de BlueDevelopment)<br>
+                <strong>E-posta:</strong> <a href="mailto:destekramazancebimde@gmail.com">destekramazancebimde@gmail.com</a>
+            </div>
+
+            <p class="note">Ramazan Cebimde, Diyanet İşleri Başkanlığı'nın ya da başka bir kurumun resmî uygulaması değildir.</p>
+        </div>
+
+        <!-- ENGLISH -->
+        <div id="content-en" class="lang-content" lang="en">
+            <p class="tagline">Prayer times, adhan alarms, a monthly timetable and the qibla direction in one app.</p>
+            <div class="cta">
+                <a class="play-btn" href="https://play.google.com/store/apps/details?id=com.ramazancebimde.ramazan_cebimde" target="_blank" rel="noopener">Get it on Google Play</a>
+                <p class="cta-note">Free for Android. Contains ads; ads can be removed with an optional purchase.</p>
+            </div>
+
+            <h2>Features</h2>
+            <ul>
+                <li>Prayer times and a monthly timetable based on data from the Presidency of Religious Affairs (Diyanet)</li>
+                <li>Adhan and reminder alarms, with separate notification settings for each prayer</li>
+                <li>Iftar and sahur countdown, Ramadan counter</li>
+                <li>Qibla direction</li>
+                <li>Tasbih counter and a calendar of religious days</li>
+                <li>A verse from the Quran every day</li>
+                <li>Home screen widget and colour themes</li>
+                <li>The whole app works without an account; sign in only if you want to back up your settings</li>
+                <li>Turkish and English</li>
+            </ul>
+
+            <h2>Privacy and Account</h2>
+            <ul>
+                <li><a href="/privacy-policy.html">Privacy Policy and KVKK Information Notice</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="/privacy-policy.html#account-deletion">Deleting your account and data</a></li>
+            </ul>
+
+            <h2>Contact</h2>
+            <div class="highlight">
+                <strong>Developer:</strong> Musa Can Bacak (BlueDevelopment on Google Play)<br>
+                <strong>Email:</strong> <a href="mailto:destekramazancebimde@gmail.com">destekramazancebimde@gmail.com</a>
+            </div>
+
+            <p class="note">Ramazan Cebimde is not an official app of the Presidency of Religious Affairs (Diyanet) or of any other institution.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Musa Can Bacak (BlueDevelopment) &middot; Ramazan Cebimde</p>
+        </div>
+    </main>
+
+    <script>
+        function switchLang(lang) {
+            document.getElementById('content-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('content-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-tr').setAttribute('aria-pressed', lang === 'tr');
+            document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en');
+            document.documentElement.lang = lang;
+        }
+        if (navigator.language && !navigator.language.startsWith('tr')) {
+            switchLang('en');
+        }
+    </script>
+</body>
+</html>
